@@ -11,6 +11,7 @@ import { catchError, EMPTY, pipe, switchMap, tap } from 'rxjs';
 import { Transaction } from '../../../core/model/app.model';
 import { TransactionService } from '../services/transaction.service';
 import { BookkeepingState } from './bookkeeping-store.state';
+import { HttpErrorResponse } from '@angular/common/http';
 
 export function withBookkeepingStoreFeature() {
   return signalStoreFeature(
@@ -37,7 +38,7 @@ export function withBookkeepingStoreFeature() {
         patchState(store, { isLoading: false, transactions });
       };
 
-      const loadTransactionsFailure = (error: any) => {
+      const loadTransactionsFailure = (error: HttpErrorResponse) => {
         patchState(store, { isLoading: false, error });
         return EMPTY;
       };
