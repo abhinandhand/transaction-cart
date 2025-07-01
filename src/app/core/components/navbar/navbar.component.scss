@@ -1,0 +1,20 @@
+header {
+    height: 80px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  
+    .nexbank-logo {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        background: linear-gradient(90deg, #00d62b, #ff00a2);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        position: relative;
+        padding-left: 0.5rem;
+      }
+   
+}
