@@ -1,1 +1,16 @@
-<p>transaction-overview works!</p>
+<div class="mt-4">
+  <h1 class="text-primary">Transaction overview</h1>
+
+  <ul class="p-0 mt-4">
+    @for (transaction of bookKeepingStore.entities(); track transaction.id) {
+      <app-transaction-item
+        mode="overview"
+        [data]="transaction"
+        (addToCart)="bookKeepingStore.addToCart(transaction)"
+        (removeFromCart)="bookKeepingStore.removeFromCart(transaction)"
+      ></app-transaction-item>
+    } @empty {
+      <li><p>No transactions available.</p></li>
+    }
+  </ul>
+</div>

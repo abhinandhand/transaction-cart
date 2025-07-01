@@ -1,1 +1,39 @@
-<p>transaction-cart works!</p>
+<div class="mt-4 position-relative">
+  <a
+    class="back-link"
+    routerLink="/"
+    ><i class="bi bi-arrow-left"></i>To overview</a
+  >
+
+  <h1 class="text-primary">Transaction cart</h1>
+
+  <ul class="p-0 mt-4 list-group-item">
+    @for (
+      transaction of bookKeepingStore.cartTransactions();
+      track transaction.id
+    ) {
+      <app-transaction-item
+        mode="cart"
+        [data]="transaction"
+        (removeFromCart)="bookKeepingStore.removeFromCart(transaction)"
+      ></app-transaction-item>
+    } @empty {
+      <li class="list-group-item">
+        <p aria-live="polite">
+          No transaction in the cart. Please add one in the overview
+        </p>
+      </li>
+    }
+
+    <div
+      class="cart-total position-absolute d-flex flex-direction-reverse justify-content-center bg-success text-white p-3 mt-3 display-4 fs-5"
+      aria-live="polite"
+    >
+      <span class="fw-bold">TOTAL: &nbsp;</span>
+      <app-money
+        [amount]="bookKeepingStore.totalCartValue()"
+        [showSymbol]="true"
+      ></app-money>
+    </div>
+  </ul>
+</div>

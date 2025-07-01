@@ -1,7 +1,13 @@
-@if (bookkeepingStore.isLoading()) {
-  <app-loader></app-loader>
-} @else if (bookkeepingStore.error()) {
-  <p>Error: {{ bookkeepingStore.error()?.message }}</p>
-} @else {
-  <router-outlet></router-outlet>
-}
+<div>
+  <app-navbar [cartItemCount]="bookkeepingStore.cartTransactions().length" />
+
+  <main class="page-container container-lg p-4">
+    @if (bookkeepingStore.isLoading()) {
+      <app-loader></app-loader>
+    } @else if (bookkeepingStore.error()) {
+      <app-http-error [error]="bookkeepingStore.error()"></app-http-error>
+    } @else {
+      <router-outlet></router-outlet>
+    }
+  </main>
+</div>
