@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { bookkeepingRoutes } from './features/bookingkeeping/bookkeeping.routes';
+import { bookkeepingRoutes } from './features/bookkeeping/bookkeeping.routes';
 import { PageNotFoundComponent } from './core/components/molecules/page-not-found/page-not-found.component';
 
 export const routes: Routes = [

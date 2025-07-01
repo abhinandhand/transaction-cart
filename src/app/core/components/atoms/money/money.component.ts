@@ -1,5 +1,5 @@
 import { CurrencyPipe } from '@angular/common';
-import { Component, inject, input, LOCALE_ID } from '@angular/core';
+import { Component, input, LOCALE_ID } from '@angular/core';
 
 @Component({
   selector: 'app-money',
