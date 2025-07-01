@@ -1,0 +1,7 @@
+@if (bookkeepingStore.isLoading()) {
+  <app-loader></app-loader>
+} @else if (bookkeepingStore.error()) {
+  <p>Error: {{ bookkeepingStore.error()?.message }}</p>
+} @else {
+  <router-outlet></router-outlet>
+}
