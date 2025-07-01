@@ -1,0 +1,10 @@
+<span>
+  {{
+    amount()
+      | currency
+        : currency()
+        : (showSymbol() ? 'symbol' : '')
+        : '1.0-2'
+        : 'nl-NL'
+  }}
+</span>

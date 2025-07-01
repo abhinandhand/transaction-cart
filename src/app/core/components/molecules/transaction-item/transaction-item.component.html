@@ -1,0 +1,132 @@
+<li class="list-group-item border-0 cursor-pointer mb-3">
+  <div class="card shadow-lg rounded-3 my-2 list-group-item border-0 m-0 p-0">
+    <div class="card-body">
+      <!-- Mobile Layout -->
+      <div class="d-block d-md-none">
+        <div class="d-flex align-items-center gap-3 mb-2">
+          <app-name-badge [name]="data().contractorName"></app-name-badge>
+          <span
+            class="fw-medium text-truncate"
+            data-cy="transaction-item-other-party-name"
+            >{{ data().contractorName }}</span
+          >
+        </div>
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <small class="text-muted">Account:</small>
+          <span class="text-truncate">
+            {{ data().accountNumber }}
+          </span>
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+          <app-money
+            [amount]="data().amountPaid"
+            [showSymbol]="true"
+            customClass="fw-bold"
+          ></app-money>
+          @if (data().isAddedToCart && mode() === 'cart') {
+            <button
+              class="btn btn-sm btn-outline-danger"
+              title="Remove from cart"
+              aria-label="Remove from cart"
+              (click)="removeFromCart.emit()"
+            >
+              <i
+                aria-hidden="true"
+                class="bi-cart-dash"
+              >
+                Remove</i
+              >
+            </button>
+          } @else {
+            <button
+              [class]="
+                data().isAddedToCart
+                  ? 'btn btn-sm btn-success'
+                  : 'btn btn-sm btn-primary'
+              "
+              [title]="data().isAddedToCart ? 'Added to cart' : 'Add to cart'"
+              [attr.aria-label]="
+                data().isAddedToCart ? 'Added to cart' : 'Add to cart'
+              "
+              (click)="addToCart.emit()"
+              [ariaDisabled]="data().isAddedToCart"
+              [disabled]="data().isAddedToCart"
+            >
+              <i
+                aria-hidden="true"
+                [class]="data().isAddedToCart ? '' : 'bi bi-cart'"
+              >
+                {{ data().isAddedToCart ? 'Added' : 'Add' }}
+              </i>
+            </button>
+          }
+        </div>
+      </div>
+
+      <!-- Desktop Layout  -->
+      <div class="d-none d-md-block">
+        <div class="txn-grid">
+          <div class="d-flex align-items-center gap-3">
+            <app-name-badge [name]="data().contractorName"></app-name-badge>
+            <span
+              class="fw-medium text-truncate"
+              data-cy="transaction-item-other-party-name"
+              >{{ data().contractorName }}</span
+            >
+          </div>
+          <div class="text-center">
+            <span class="text-truncate d-inline-block w-100">
+              {{ data().accountNumber }}
+            </span>
+          </div>
+
+          <div class="d-flex justify-content-end align-items-center gap-4">
+            <app-money
+              [amount]="data().amountPaid"
+              [showSymbol]="true"
+              customClass="display-2 fs-6"
+            ></app-money>
+
+            @if (data().isAddedToCart && mode() === 'cart') {
+              <button
+                class="btn btn-sm btn-outline-danger"
+                title="Remove from cart"
+                aria-label="Remove from cart"
+                (click)="removeFromCart.emit()"
+              >
+                <i
+                  aria-hidden="true"
+                  class="bi-cart-dash"
+                >
+                  Remove</i
+                >
+              </button>
+            } @else {
+              <button
+                [class]="
+                  data().isAddedToCart
+                    ? 'btn btn-sm btn-success'
+                    : 'btn btn-sm btn-primary'
+                "
+                [title]="data().isAddedToCart ? 'Added to cart' : 'Add to cart'"
+                [attr.aria-label]="
+                  data().isAddedToCart ? 'Added to cart' : 'Add to cart'
+                "
+                (click)="addToCart.emit()"
+                [ariaDisabled]="data().isAddedToCart"
+                [disabled]="data().isAddedToCart"
+              >
+                <i
+                  aria-hidden="true"
+                  [class]="data().isAddedToCart ? '' : 'bi bi-cart'"
+                >
+                  {{ data().isAddedToCart ? 'Added' : 'Add' }}
+                </i>
+              </button>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>

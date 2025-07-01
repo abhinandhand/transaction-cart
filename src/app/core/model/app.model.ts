@@ -1,8 +1,9 @@
 export interface Transaction {
   id: number;
-  contractName: string;
+  contractorName: string;
   accountNumber: string;
   amountPaid: number;
+  isAddedToCart?: boolean;
 }
 export interface TransactionResponse {
   transactions: Transaction[];

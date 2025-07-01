@@ -3,7 +3,10 @@
     class="container container-lg mx-auto navbar navbar-expand-lg bs-navbar-light bs-bg-light h-100 px-3"
   >
     <div class="container-fluid justify-content-between">
-      <a routerLink="/" class="navbar-brand d-flex align-items-center">
+      <a
+        routerLink="/"
+        class="navbar-brand d-flex align-items-center"
+      >
         <i class="bi bi-book fs-3"></i>
         <span class="nexbank-logo">Bookkeeping</span>
       </a>
@@ -11,8 +14,27 @@
         class="navbar-nav d-flex flex-row justify-content-center align-items-center gap-4"
       >
         <li class="d-none d-sm-block">Welcome Tom</li>
+
+        <li>
+          <a
+            routerLink="/cart"
+            class="btn btn-primary position-relative"
+            title="View cart"
+            aria-live="polite"
+          >
+            <span aria-hidden="true">CART </span>
+            <i
+              class="bi bi-cart"
+              [attr.aria-label]="
+                'Shopping cart with ' + cartItemCount() + ' items'
+              "
+            >
+              {{ cartItemCount() }}
+            </i>
+          </a>
+        </li>
+
         <li class="d-none d-sm-block"><button class="btn">Logout</button></li>
-        <li></li>
       </ul>
     </div>
   </nav>
