@@ -5,20 +5,19 @@ import {
   type,
   withComputed,
   withMethods,
+  withState,
 } from '@ngrx/signals';
 import { addEntities, updateEntity, withEntities } from '@ngrx/signals/entities';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { catchError, EMPTY, pipe, switchMap, tap } from 'rxjs';
 import { Transaction } from '../../../core/model/app.model';
 import { TransactionService } from '../services/transaction.service';
-import { BookkeepingState } from './bookkeeping-store.state';
+import { BookkeepingState, initialiseBookkeepingFactory } from './bookkeeping-store.state';
 import { HttpErrorResponse } from '@angular/common/http';
 
 export function withBookkeepingStoreFeature() {
   return signalStoreFeature(
-    {
-      state: type<BookkeepingState>(),
-    },
+    withState<BookkeepingState>(initialiseBookkeepingFactory),
     withEntities<Transaction>(),
     withMethods((store) => {
       const _transactionService = inject(TransactionService);
