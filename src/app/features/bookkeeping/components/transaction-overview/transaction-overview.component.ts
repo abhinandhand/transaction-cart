@@ -12,5 +12,4 @@ export class TransactionOverviewComponent {
 
  readonly bookKeepingStore = inject(BookkeppingStore);
 
-  
 }

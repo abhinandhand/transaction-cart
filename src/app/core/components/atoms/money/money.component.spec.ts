@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { registerLocaleData } from '@angular/common';
+import localeNl from '@angular/common/locales/nl';
 
 import { MoneyComponent } from './money.component';
+
+registerLocaleData(localeNl, 'nl-NL');
 
 describe('MoneyComponent', () => {
   let component: MoneyComponent;
@@ -14,6 +18,7 @@ describe('MoneyComponent', () => {
 
     fixture = TestBed.createComponent(MoneyComponent);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('amount', '5.0000');
     fixture.detectChanges();
   });
 
