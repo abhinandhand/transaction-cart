@@ -65,4 +65,4 @@ src/app/
 # Future improvements
 
 1. **Performance Boost**: Smart caching and efficient data fetching on demand
-2  **E2E Tests**: Add comprehensive E2E tests for full confidence in the codebase.
+2. **E2E Tests**: Add comprehensive E2E tests for full confidence in the codebase.
