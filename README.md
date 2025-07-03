@@ -2,58 +2,63 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.6.
 
+# Techstack used
+
+1. Angular 19+
+2. ngrx/signals
+3. Boostrap
+
 ## Development server
 
-To start a local development server, run:
+Command to start and test the app
 
 ```bash
-ng serve
+npm install
+npm run start
+npm run test
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+# Assumptions
 
-## Code scaffolding
+1. The api is served and stubbed through public folder - http://localhost:4200/api/transaction-cart-data.json
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+# Folder structure
 
-```bash
-ng generate component component-name
+```
+src/app/
+├── 📁 core/                          # Shared application infrastructure
+│   ├── 📁 components/                # Reusable UI components
+│   │   ├── 📁 atoms/                 # Basic UI elements (money, name-badge)
+│   │   ├── 📁 molecules/             # Composed components (transaction-item)
+│   │   └── 📁 organisms/             # Complex components
+│   ├── 📁 model/                     # TypeScript interfaces and types
+│   └── 📁 services/                  # Shared application services
+├── 📁 features/                      # Feature-specific modules
+│   └── 📁 bookkeeping/               # Transaction management feature
+│       ├── 📁 components/            # Feature-specific components
+│       │   ├── transaction-overview/ # Transaction listing component
+│       │   └── transaction-cart/     # Shopping cart component
+│       ├── 📁 services/              # Feature services and data mappers
+│       │   ├── transaction.service   # HTTP data fetching
+│       │   └── transaction.mapper    # Data transformation
+│       └── 📁 store/                 # NgRx Signals state management
+│           ├── bookkeeping-store     # Main store configuration
+│           └── bookkeeping-store.feature # Store feature implementation
+├── 📁 mocks/                         # Testing utilities and mock data
+└── 📁 public/api/                    # Mock API endpoints
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-```bash
-ng generate --help
-```
+# Core Features
 
-## Building
+1. **Scalable & Maintainable** Modular architecture with clear seperation of concerns, promoting reusability, clarity, and ease of scaling
+2. **Smart State Management** Utilised **Signal Store** with a Redux-inspired approach for predictable, reactive data updates.
+3. **Reusable Components**: Lightweight, modular components simplify maintenance, testing, and reuse across features.
+4. **Error handling**: Implemented error and negative scenarios
+5. **Accessibility First**: Meets WCAG guidelines with keyboard navigation and screen reader support for inclusive access.
 
-To build the project run:
 
-```bash
-ng build
-```
+# Future improvements
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. **Performance Boost**: Smart caching and efficient data fetching on demand
+2  **E2E Tests**: Add comprehensive E2E tests for full confidence in the codebase.
