@@ -2,6 +2,10 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.6.
 
+Github link - https://github.com/abhinandhand/transaction-cart
+
+Live link - https://abhinandhand.github.io/transaction-cart/
+
 # Techstack used
 
 1. Angular 19+

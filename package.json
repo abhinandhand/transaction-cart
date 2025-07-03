@@ -8,7 +8,9 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "lint:fix": "ng lint --fix"
+    "lint:fix": "ng lint --fix",
+    "github-build": "ng build --configuration production --base-href 'https://abhinandhand.github.io/transaction-cart/'",
+    "github-deploy": "npx angular-cli-ghpages --dir=dist/transaction-cart/browser --no-silent"
   },
   "private": true,
   "dependencies": {
