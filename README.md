@@ -4,7 +4,7 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 Github link - https://github.com/abhinandhand/transaction-cart
 
-Live link - https://abhinandhand.github.io/transaction-cart/
+Live link - [https://abhinandhand.github.io/transaction-cart/](https://abhinandhand.github.io/transaction-cart/)
 
 # Techstack used
 
